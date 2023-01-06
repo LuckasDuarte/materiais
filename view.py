@@ -67,7 +67,7 @@ def adicionar_material():
     quantidade_l = Label(frame_infos_adicionar, text="Quatidade:", bg=co4, fg=co3 ,font=("Ubuntu 12 bold"))
     quantidade_l.place(x=30, y= 130)
 
-    quantidade_e = Entry(frame_infos_adicionar, width=10, font=("Ubuntu 14"))
+    quantidade_e = Entry(frame_infos_adicionar, width=10, font=("Ubuntu 12"))
     quantidade_e.place(x=120, y=130)
 
     #Endereco
@@ -81,9 +81,8 @@ def adicionar_material():
         print("Adicionado")
 
     #Botao Adicionar
-    # logo_adicionar = PhotoImage(file="C:/Users/lucas/Desktop/Materiais/images/adicionar.png")
     btn_adicionar = Button(frame_infos_adicionar, text="Adicionar", overrelief="ridge", relief="raised", cursor="hand2", font=("Ubuntu 14 bold"),bg="#0f0", fg="#fff",command= adicionar_material_banco)
-    btn_adicionar.place(x=160, y=240)
+    btn_adicionar.place(x=120, y=220)
 
 
 
@@ -107,6 +106,43 @@ def retirar_material():
 
     titulo_operacao = Label(frame_infos_retirar, text="Retirar Material", bg=co4, fg=co3 ,font=("Ubuntu 22 bold"))
     titulo_operacao.place(x=120, y= 20)
+
+    #Material a ser Retirado
+    material_l = Label(frame_infos_retirar, text="Material:", bg=co4, fg=co3 ,font=("Ubuntu 14 bold"))
+    material_l.place(x=30, y= 80)
+
+    material_e = ttk.Combobox(frame_infos_retirar, width=30, values=["Teste"])
+    material_e.place(x=120, y=84)
+
+    #Quantidade a ser Retirada
+    quantidade_l = Label(frame_infos_retirar, text="Quatidade:", bg=co4, fg=co3 ,font=("Ubuntu 12 bold"))
+    quantidade_l.place(x=30, y= 130)
+
+    quantidade_e = Entry(frame_infos_retirar, width=10, font=("Ubuntu 12"))
+    quantidade_e.place(x=120, y=130)
+
+    #Endereco
+    endereco_l = Label(frame_infos_retirar, text="Endereço:", bg=co4, fg=co3 ,font=("Ubuntu 12 bold"))
+    endereco_l.place(x=30, y= 180)
+
+    endereco_e = ttk.Combobox(frame_infos_retirar, width=30, values=["Teste"])
+    endereco_e.place(x=120, y=180)
+
+    # Estabelacer Data de Retirada
+
+    #Usuário de retirada de material
+    user_l = Label(frame_infos_retirar, text="Usuário:", bg=co4, fg=co3 ,font=("Ubuntu 12 bold"))
+    user_l.place(x=30, y= 225)
+
+    user_e = Entry(frame_infos_retirar, width=20, font=("Ubuntu 12"))
+    user_e.place(x=120, y=225)
+
+    #Botão Retirada de Material
+    btn_retirar = Button(frame_infos_retirar, text="Retirar", overrelief="ridge", relief="raised", cursor="hand2", font=("Ubuntu 14 bold"),bg="#0f0", fg="#fff")
+    btn_retirar.place(x=120, y=260)
+
+
+
 
     
 

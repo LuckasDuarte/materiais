@@ -7,6 +7,19 @@ from functions import Inserir_Materiais
 
 # ------------- Gerar Executável Python: pyinstaller --onefile --noconsole --windowed {Programa} 
 
+
+
+#TODO
+#   Criar Visualização da Tabela
+#   Tabela Estoque 
+#   Tabela Movimentações
+#   
+#   
+#   Aprimorar CRUD
+#   Criar Funcao que alimenta os dados das ComboBox
+# 
+
+
 # -------------- Cores -------------------
 
 co1 = "#ccc"

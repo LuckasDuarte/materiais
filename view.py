@@ -1,6 +1,8 @@
 # Pacotes
 from tkinter import *
-from tkinter import ttk
+from tkinter import ttk, messagebox
+
+from functions import Inserir_Materiais
 
 
 # ------------- Gerar Executável Python: pyinstaller --onefile --noconsole --windowed {Programa} 
@@ -78,7 +80,23 @@ def adicionar_material():
     endereco_e.place(x=120, y=180)
 
     def adicionar_material_banco():
-        print("Adicionado")
+        
+        material = nome_e.get()
+        quantidade = quantidade_e.get()
+        endereco = endereco_e.get()
+
+        lista = [material, quantidade, endereco]
+
+        if material == "":
+            messagebox.showerror(title="Erro", message="Preencha a Descrição de Forma Correta")
+        elif quantidade == "":
+            messagebox.showerror(title="Erro", message="Preencha a Quantidade de Forma Correta")
+        elif endereco == "":
+            messagebox.showerror(title="Erro", message="Preencha o Endereço de Forma Correta")
+        else:
+            Inserir_Materiais(lista)
+            messagebox.showinfo(title="Sucesso", message="Dados Inseridos Com Sucesso!")
+
 
     #Botao Adicionar
     btn_adicionar = Button(frame_infos_adicionar, text="Adicionar", overrelief="ridge", relief="raised", cursor="hand2", font=("Ubuntu 14 bold"),bg="#0f0", fg="#fff",command= adicionar_material_banco)

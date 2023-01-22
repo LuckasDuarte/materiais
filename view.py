@@ -265,6 +265,7 @@ def retirar_material():
     material = material_e.get()
     quantidade = quantidade_e.get()
     quantidade_int_entrada = int(quantidade)
+    endereco = endereco_e.get()
     user = user_e.get()
 
     if material == "":
@@ -295,10 +296,11 @@ def retirar_material():
 
             # NOME DO MATERIAL
             material_nome = item[1]
+            endereco_alocado = item[3]
 
             
 
-            if (material_retirada == material_nome):
+            if (material_retirada == material_nome and endereco == endereco_alocado):
                 print(item, "Este é o produto!!!")
 
                 # Pegando o id do item
@@ -328,6 +330,7 @@ def retirar_material():
 
                     material_e.delete(0, "end")
                     quantidade_e.delete(0, "end")
+                    endereco_e.delete(0, "end")
                     user_e.delete(0, "end")
 
 
@@ -362,16 +365,25 @@ def retirar_material_btn():
     quantidade_e = Entry(frame_infos_retirar, width=10, font=("Ubuntu 12"))
     quantidade_e.place(x=120, y=130)
 
+    #Enderecos
+    enderecos = Enderecos_Combobox()
+
+    endereco_l = Label(frame_infos_retirar, text="Endereço:", bg=co4, fg=co3 ,font=("Ubuntu 12 bold"))
+    endereco_l.place(x=30, y= 180)
+
+    endereco_e = ttk.Combobox(frame_infos_retirar, width=20, values= enderecos)
+    endereco_e.place(x=120, y=180)
+
     #Usuário de retirada de material
     user_l = Label(frame_infos_retirar, text="Usuário:", bg=co4, fg=co3 ,font=("Ubuntu 12 bold"))
-    user_l.place(x=48, y= 180)
+    user_l.place(x=48, y= 230)
 
     user_e = Entry(frame_infos_retirar, width=20, font=("Ubuntu 12"))
-    user_e.place(x=120, y=180)
+    user_e.place(x=120, y=230)
 
     #Botão Retirada de Material
     btn_retirar = Button(frame_infos_retirar, text="Retirar", overrelief="ridge", relief="raised", cursor="hand2", font=("Ubuntu 14 bold"),bg="#0f0", fg="#fff", command= retirar_material)
-    btn_retirar.place(x=120, y=220)
+    btn_retirar.place(x=120, y=270)
 
     if frame_infos_adicionar in frame_entradas:
         frame_infos_adicionar.destroy()

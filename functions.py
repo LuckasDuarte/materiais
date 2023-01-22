@@ -84,7 +84,7 @@ def Verificar_Quantidade():
 
         lista = []
 
-        query = "SELECT id, material, quantidade FROM estoque"
+        query = "SELECT id, material, quantidade, endereco FROM estoque"
         cur.execute(query)
         dados = cur.fetchall()
 

@@ -412,32 +412,38 @@ def movimentacoes():
 
     # -------- FRAMES ---------------------
 
-    frame_filtros_expandido = Frame(Movimentacoes_Tela, width=420, height=760, bg=co2)
-    frame_filtros_expandido.grid(column=0, row= 0)
+    frame_filtros = Frame(Movimentacoes_Tela, width=420, height=760, bg=co2)
+    frame_filtros.grid(column=0, row= 0)
 
-    frame_tabela_expandido = Frame(Movimentacoes_Tela, width=920, height=580, bg=co4)
-    frame_tabela_expandido.grid(column=1, row= 0)
+    frame_tabela = Frame(Movimentacoes_Tela, width=920, height=580, bg=co4)
+    frame_tabela.grid(column=1, row= 0)
 
 
 
    
     # ----------- COMPONENTES ------------
-    titulo_movimentacoes = Label(frame_filtros_expandido, text="Movimentações", font=("Ivy 22 bold"), bg=co2, fg= co3, )
+    titulo_movimentacoes = Label(frame_filtros, text="Movimentações", font=("Ivy 22 bold"), bg=co2, fg= co3, )
     titulo_movimentacoes.place(x= 100, y= 15)
 
-    operacao_l = Label(frame_filtros_expandido, text="Operação:", font=("Ivy 14 bold"), bg=co2, fg= co3)
+    operacao_l = Label(frame_filtros, text="Operação:", font=("Ivy 14 bold"), bg=co2, fg= co3)
     operacao_l.place(x= 50, y= 80)
 
     operacoes = ["Entrada","Retirada"]
-    operacao_e = ttk.Combobox(frame_filtros_expandido, width=30, values= operacoes)
+    operacao_e = ttk.Combobox(frame_filtros, width=30, values= operacoes)
     operacao_e.place(x=160, y=83)
 
-    material_l_filtro = Label(frame_filtros_expandido, text="Material:", font=("Ivy 14 bold"), bg=co2, fg= co3)
+    material_l_filtro = Label(frame_filtros, text="Material:", font=("Ivy 14 bold"), bg=co2, fg= co3)
     material_l_filtro.place(x= 52, y= 120)
 
     materiais = Materiais_Combobox()
-    materiais_e_filtro = ttk.Combobox(frame_filtros_expandido, width=30, values= materiais)
+    materiais_e_filtro = ttk.Combobox(frame_filtros, width=30, values= materiais)
     materiais_e_filtro.place(x=160, y=123)
+
+    btn_buscar = Button(frame_filtros, text= "Buscar", bg="#0f0", fg="#fff", font=("Ivy 14 bold"), relief="raised", cursor="hand2", overrelief="ridge")
+    btn_buscar.place(x=55, y= 170)
+
+    btn_limpar = Button(frame_filtros, text= "Limpar", bg="red", fg="#fff", font=("Ivy 14 bold"), relief="raised", cursor="hand2", overrelief="ridge")
+    btn_limpar.place(x=150, y= 170)
 
     
 

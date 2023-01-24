@@ -103,8 +103,10 @@ def Atualizar(i):
         Enderecos_Combobox()
         print("Atualizado")
 
-# TO-DO 
-# VERIFICACAO SE O ITEM JA EXISTIR PARA ADICIONAR, APENAS ADICIONAR A QUANTIDADE (Completo)
+# ------------ Funcoes Movimentações --------------#
+
+
+
 
 
         

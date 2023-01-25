@@ -238,11 +238,14 @@ def adicionar_quantidade():
                         Mostrar_Tabela()
 
                         messagebox.showinfo(title="Sucesso", message="Quantidade Acrescida com Sucesso!")
-
+                        
                         nome_e.delete(0, "end")
                         quantidade_e.delete(0, "end")
                         endereco_e.delete(0,"end")
                         user_e.delete(0, "end")
+
+        
+                    
                     
         
            
@@ -428,7 +431,7 @@ def movimentacoes():
     operacao_l = Label(frame_filtros, text="Operação:", font=("Ivy 14 bold"), bg=co2, fg= co3)
     operacao_l.place(x= 50, y= 80)
 
-    operacoes = ["Entrada","Retirada"]
+    operacoes = ["ENTRADA","RETIRADA","TODOS"]
     operacao_e = ttk.Combobox(frame_filtros, width=30, values= operacoes)
     operacao_e.place(x=160, y=83)
 
@@ -436,6 +439,7 @@ def movimentacoes():
     material_l_filtro.place(x= 52, y= 120)
 
     materiais = Materiais_Combobox()
+    materiais.append("TODOS")
     materiais_e_filtro = ttk.Combobox(frame_filtros, width=30, values= materiais)
     materiais_e_filtro.place(x=160, y=123)
 
@@ -443,7 +447,10 @@ def movimentacoes():
     btn_buscar.place(x=55, y= 170)
 
     btn_limpar = Button(frame_filtros, text= "Limpar", bg="red", fg="#fff", font=("Ivy 14 bold"), relief="raised", cursor="hand2", overrelief="ridge")
-    btn_limpar.place(x=150, y= 170)
+    btn_limpar.place(x=280, y= 170)
+
+    # ------------ TABELA ------------
+    # CRIAR TABELA
 
     
 

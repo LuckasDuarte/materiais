@@ -1,6 +1,7 @@
 # Pacotes
 from tkinter import *
 from tkinter import ttk, messagebox
+from tkcalendar import Calendar, DateEntry
 
 
 from functions import Inserir_Materiais, Mostrar_Estoque, Materiais_Combobox, Verificar_Quantidade, Atualizar, Enderecos_Combobox
@@ -443,14 +444,22 @@ def movimentacoes():
     materiais_e_filtro = ttk.Combobox(frame_filtros, width=30, values= materiais)
     materiais_e_filtro.place(x=160, y=123)
 
+    calendario_l = Label(frame_filtros, text="Data:", font=("Ivy 14 bold"), bg=co2, fg= co3)
+    calendario_l.place(x= 52, y= 160)
+
+    calendario_e = DateEntry(frame_filtros, width =20, background = "darkblue", locale = "pt_BR")
+    calendario_e.place(x= 160, y= 160)
+
     btn_buscar = Button(frame_filtros, text= "Buscar", bg="#0f0", fg="#fff", font=("Ivy 14 bold"), relief="raised", cursor="hand2", overrelief="ridge")
-    btn_buscar.place(x=55, y= 170)
+    btn_buscar.place(x=55, y= 220)
 
     btn_limpar = Button(frame_filtros, text= "Limpar", bg="red", fg="#fff", font=("Ivy 14 bold"), relief="raised", cursor="hand2", overrelief="ridge")
-    btn_limpar.place(x=280, y= 170)
+    btn_limpar.place(x=280, y= 220)
 
     # ------------ TABELA ------------
     # CRIAR TABELA
+
+    
 
     
 

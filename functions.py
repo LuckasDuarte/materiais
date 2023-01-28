@@ -105,6 +105,31 @@ def Atualizar(i):
 
 # ------------ Funcoes Movimentações --------------#
 
+def Inserir_Movimentacoes(i):
+     with conn:
+        cur = conn.cursor()
+        query = """
+            INSERT INTO movimentacoes (material, quantidade, endereco) VALUES (?, ?, ?)
+        """
+        cur.execute(query, i)
+        conn.commit()
+        print("Material Criado")
+
+
+def Mostrar_Movimentacoes_Todas():
+    with conn:
+        cur = conn.cursor()
+        lista = []
+        query = "SELECT * FROM movimentacoes"
+
+        cur.execute(query)
+        dados = cur.fetchall()
+
+        for i in dados:
+            lista.append(i)
+    print(lista)
+Mostrar_Movimentacoes_Todas()
+
 
 
 

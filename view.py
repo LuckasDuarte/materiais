@@ -2,6 +2,7 @@
 from tkinter import *
 from tkinter import ttk, messagebox
 from tkcalendar import Calendar, DateEntry
+from datetime import date
 
 
 from functions import Inserir_Materiais, Mostrar_Estoque, Materiais_Combobox, Verificar_Quantidade, Atualizar, Enderecos_Combobox
@@ -103,12 +104,17 @@ def adicionar_material():
         user = user_e.get()
 
 
-        #CRIAR UMA NOVA LISTA PARA ADICIONAR NA MOVIMENTAÇÃO
 
         # MATERIAL NOVO
         lista = [material, quantidade, endereco]
-
         
+        #Lista Movimentacoes
+        tipo = "ENTRADA"
+        data = date.today()
+        dia_atual = f"{data.day}/{data.month}/{data.year}"
+        lista_movimentacoes = [tipo, material, quantidade, endereco, dia_atual, user]   
+
+        #TODO     
 
         if material == "":
             messagebox.showerror(title="Erro", message="Preencha o Material de Forma Correta")
@@ -397,12 +403,6 @@ icone_retirar = PhotoImage(file="C:/Users/lucas/Desktop/Materiais/images/remover
 botao_retirar = Button(frame_topo, image= icone_retirar, text="Retirar Material", compound='left', width=150, overrelief="ridge", relief="raised", cursor="hand2", command=retirar_material_btn)
 botao_retirar.place(x=600, y= 140)
 
-# titulo_estoque_container = Frame(frame_topo, width=350, height= 60, bg=co1)
-# titulo_estoque_container.place(x=780, y= 130)
-
-# titulo_estoque = Label(titulo_estoque_container, text="Estoque", font=("Ivy 22 bold"), bg=co1)
-# titulo_estoque.place(x= 120, y= 15)
-
 def movimentacoes():
     
     Movimentacoes_Tela = Toplevel()
@@ -457,7 +457,10 @@ def movimentacoes():
     btn_limpar.place(x=280, y= 220)
 
     # ------------ TABELA ------------
-    # CRIAR TABELA
+    def Tabela_Movimentacoes():
+        global movimentacoes_tabela
+
+
 
     
 

@@ -109,11 +109,11 @@ def Inserir_Movimentacoes(i):
      with conn:
         cur = conn.cursor()
         query = """
-            INSERT INTO movimentacoes (material, quantidade, endereco) VALUES (?, ?, ?)
+            INSERT INTO movimentacoes (operacao, material, quantidade, endereco, data, usuario  ) VALUES (?, ?, ?, ?, ?, ?)
         """
         cur.execute(query, i)
         conn.commit()
-        print("Material Criado")
+        print("Movimentação Gerada com Sucesso!")
 
 
 def Mostrar_Movimentacoes_Todas():

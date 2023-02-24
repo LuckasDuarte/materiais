@@ -5,7 +5,7 @@ from tkcalendar import Calendar, DateEntry
 from datetime import date
 
 
-from functions import Inserir_Materiais, Mostrar_Estoque, Materiais_Combobox, Verificar_Quantidade, Atualizar, Enderecos_Combobox
+from functions import Inserir_Materiais, Mostrar_Estoque, Materiais_Combobox, Verificar_Quantidade, Atualizar, Enderecos_Combobox,Mostrar_Movimentacoes_Todas, Inserir_Movimentacoes
 
 # ------------- Gerar Executável Python: pyinstaller --onefile --noconsole --windowed {Programa} 
 
@@ -114,7 +114,7 @@ def adicionar_material():
         dia_atual = f"{data.day}/{data.month}/{data.year}"
         lista_movimentacoes = [tipo, material, quantidade, endereco, dia_atual, user]   
 
-        #TODO     
+           
 
         if material == "":
             messagebox.showerror(title="Erro", message="Preencha o Material de Forma Correta")
@@ -129,6 +129,7 @@ def adicionar_material():
                 Inserir_Materiais(lista)
                 Mostrar_Tabela()
                 messagebox.showinfo(title="Sucesso", message="Material Criado Com Sucesso!")
+                Inserir_Movimentacoes(lista_movimentacoes)
 
                 nome_e.delete(0, "end")
                 quantidade_e.delete(0, "end")
@@ -239,13 +240,21 @@ def adicionar_quantidade():
 
                         saldo_entrada = saldo_atual_banco_int + saldo_atual # Quantidade Atualizada
 
+                        #INSERINDO MOVIMENTAÇÕES
+                        tipo = "ENTRADA"
+                        data = date.today()
+                        dia_atual = f"{data.day}/{data.month}/{data.year}"
+
+                        lista_movimentacoes = [tipo, material, quantidade, endereco, dia_atual, user]
+
                         dados_entrada = [material, saldo_entrada, item_id]
 
                         Atualizar(dados_entrada)
                         Mostrar_Tabela()
 
                         messagebox.showinfo(title="Sucesso", message="Quantidade Acrescida com Sucesso!")
-                        
+                        Inserir_Movimentacoes(lista_movimentacoes)
+
                         nome_e.delete(0, "end")
                         quantidade_e.delete(0, "end")
                         endereco_e.delete(0,"end")
@@ -289,7 +298,7 @@ def retirar_material():
 
         lista = [material, quantidade_int_entrada]
 
-        lista_retirada = [material, quantidade_int_entrada, user]
+
 
         # Posicionamento material/quantidade
         material_retirada = lista[0]
@@ -334,10 +343,16 @@ def retirar_material():
                     # DADOS CORRETOS PARA ATUALIZAÇÃO
                     dados_atualizar_estoque = [material, saldo, id]
 
+                    tipo = "SAIDA"
+                    data = date.today()
+                    dia_atual = f"{data.day}/{data.month}/{data.year}"
+                    lista_movimentacoes = [tipo, material, quantidade, endereco, dia_atual, user]
+
                     Atualizar(dados_atualizar_estoque)
                     Mostrar_Tabela()
 
                     messagebox.showinfo(title="Sucesso", message="Material Retirado com sucesso!")
+                    Inserir_Movimentacoes(lista_movimentacoes)
 
                     material_e.delete(0, "end")
                     quantidade_e.delete(0, "end")
@@ -419,7 +434,10 @@ def movimentacoes():
     frame_filtros = Frame(Movimentacoes_Tela, width=420, height=760, bg=co2)
     frame_filtros.grid(column=0, row= 0)
 
-    frame_tabela = Frame(Movimentacoes_Tela, width=920, height=580, bg=co4)
+    frame_tabela_container = Frame(Movimentacoes_Tela, width=940, height=580, bg=co4)
+    frame_tabela_container.grid(column=1, row= 0)
+
+    frame_tabela = Frame(Movimentacoes_Tela, width=900, height=520, bg=co3)
     frame_tabela.grid(column=1, row= 0)
 
 
@@ -460,6 +478,11 @@ def movimentacoes():
     def Tabela_Movimentacoes():
         global movimentacoes_tabela
 
+        dados = Mostrar_Movimentacoes_Todas()
+
+        Tabela_Head = ["id","Tipo","Material","Quantidade","Endereco","Data"]
+
+        
 
 
     

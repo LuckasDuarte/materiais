@@ -427,6 +427,8 @@ def movimentacoes():
     Movimentacoes_Tela.configure(bg= co1)
     Movimentacoes_Tela.state('zoomed') 
     
+    
+
 
 
     # -------- FRAMES ---------------------
@@ -474,29 +476,60 @@ def movimentacoes():
     btn_limpar = Button(frame_filtros, text= "Limpar", bg="red", fg="#fff", font=("Ivy 14 bold"), relief="raised", cursor="hand2", overrelief="ridge")
     btn_limpar.place(x=280, y= 220)
 
+    
     # ------------ TABELA ------------
     def Tabela_Movimentacoes():
         global movimentacoes_tabela
 
         dados = Mostrar_Movimentacoes_Todas()
 
-        Tabela_Head = ["id","Tipo","Material","Quantidade","Endereco","Data"]
+        Tabela_Head = ["id","Tipo","Material","Quantidade","Endereco","Data","User"]
 
+        style = ttk.Style()
+
+        style.theme_use("alt")
+
+        # Criando Estilo Tabela
+        style.configure("Treeview", 
+            background = "silver",
+            foreground = "#000",
+            rowheight = 25,
+            fieldbackground = "silver",
+            font = ("Roboto 11")
+        )
+
+        style.map("Treeview", 
+            background = [('selected', '#606060')]
+        )
+
+        Tabela = ttk.Treeview(frame_tabela, selectmode="browse", columns= Tabela_Head, show="headings", height=16)
+
+        vscb = ttk.Scrollbar(frame_tabela, orient="vertical", command= Tabela.yview)
+        hscb = ttk.Scrollbar(frame_tabela, orient= "horizontal", command= Tabela.xview)
+
+        Tabela.configure( yscrollcommand= vscb.set, xscrollcommand= hscb.set)
         
 
+        #Posicionando Elementos da tabela
+        Tabela.grid(column= 0, row= 0, sticky= "nsew")
+        vscb.grid(column= 1, row= 0, sticky= "ns")
+        hscb.grid(column=0, row= 1, sticky= "ew")
 
     
+        # Contador
+        n = 0
+        for coluna in Tabela_Head:
+            Tabela.heading(coluna, text= coluna.title(), anchor="center")
+            Tabela.column(coluna, width=110, anchor="center")
 
-    
+            n + 1
+        
+        for item in dados:
+            Tabela.insert('', 'end', values= item)  
 
-
-
-
-
-
-
-
+    Tabela_Movimentacoes()
     Movimentacoes_Tela.mainloop()
+    
 
 
 

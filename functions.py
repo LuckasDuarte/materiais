@@ -127,8 +127,8 @@ def Mostrar_Movimentacoes_Todas():
 
         for i in dados:
             lista.append(i)
-    print(lista)
-Mostrar_Movimentacoes_Todas()
+    return(lista)
+
 
 
 

@@ -473,7 +473,10 @@ def movimentacoes():
     btn_buscar = Button(frame_filtros, text= "Buscar", bg="#0f0", fg="#fff", font=("Ivy 14 bold"), relief="raised", cursor="hand2", overrelief="ridge")
     btn_buscar.place(x=55, y= 220)
 
-    btn_limpar = Button(frame_filtros, text= "Limpar", bg="red", fg="#fff", font=("Ivy 14 bold"), relief="raised", cursor="hand2", overrelief="ridge")
+    def atualizar():
+        Tabela_Movimentacoes.destroy()
+
+    btn_limpar = Button(frame_filtros, text= "Limpar", bg="red", fg="#fff", font=("Ivy 14 bold"), relief="raised", cursor="hand2", overrelief="ridge", command= atualizar())
     btn_limpar.place(x=280, y= 220)
 
     

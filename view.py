@@ -40,9 +40,9 @@ selecione_l.place(x=25, y= 80)
 
 #-----------------------------------------------------------
 
-logo = PhotoImage(file="C:/Users/lucas/Desktop/Materiais/images/logo.png", width=200, height=200)    #Logo Santuario
+logo = PhotoImage(file="C:/Users/lucas/Desktop/Materiais/images/estoque-gd.png", width=200, height=200)    #Logo Santuario
 logo_label = Label(frame_topo, image= logo, bg= co1)
-logo_label.place(x= 0, y= -20)
+logo_label.place(x= 30, y= 30)
 
 titulo = Label(frame_topo, text="Estoque de Materiais", bg=co1, font=("Ubuntu 22 bold"))
 titulo.place(x= 240, y=80)
@@ -473,10 +473,8 @@ def movimentacoes():
     btn_buscar = Button(frame_filtros, text= "Buscar", bg="#0f0", fg="#fff", font=("Ivy 14 bold"), relief="raised", cursor="hand2", overrelief="ridge")
     btn_buscar.place(x=55, y= 220)
 
-    def atualizar():
-        Tabela_Movimentacoes.destroy()
 
-    btn_limpar = Button(frame_filtros, text= "Limpar", bg="red", fg="#fff", font=("Ivy 14 bold"), relief="raised", cursor="hand2", overrelief="ridge", command= atualizar())
+    btn_limpar = Button(frame_filtros, text= "Limpar", bg="red", fg="#fff", font=("Ivy 14 bold"), relief="raised", cursor="hand2", overrelief="ridge")
     btn_limpar.place(x=280, y= 220)
 
     
@@ -528,11 +526,10 @@ def movimentacoes():
             n + 1
         
         for item in dados:
-            Tabela.insert('', 'end', values= item)  
-
+            Tabela.insert('', 'end', values= item)
     Tabela_Movimentacoes()
     Movimentacoes_Tela.mainloop()
-    
+        
 
 
 

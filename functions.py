@@ -90,7 +90,9 @@ def Verificar_Quantidade():
 
         for i in dados:
             lista.append(i)
-    return lista
+        return lista
+
+
 
 def Atualizar(i):
     with conn:

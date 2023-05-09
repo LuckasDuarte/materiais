@@ -19,7 +19,7 @@ co4 = "#063970"
 # -------------- Atributos Janela --------------
 Home = Tk()
 Home.title("Estoque Materiais")
-icone = PhotoImage(file="C:/Users/lucas/Desktop/Materiais/images/parcela.png")
+icone = PhotoImage(file="C:/Users/lucas/Documents/Lucas/Materiais/images/parcela.png")
 Home.iconphoto(False, icone)
 Home.configure(bg= co1)
 Home.state('zoomed')    # Preenche toda a tela
@@ -40,7 +40,7 @@ selecione_l.place(x=25, y= 80)
 
 #-----------------------------------------------------------
 
-logo = PhotoImage(file="C:/Users/lucas/Desktop/Materiais/images/estoque-gd.png", width=200, height=200)    #Logo Santuario
+logo = PhotoImage(file="C:/Users/lucas/Documents/Lucas/Materiais/images/estoque-gd.png", width=200, height=200)    #Logo Santuario
 logo_label = Label(frame_topo, image= logo, bg= co1)
 logo_label.place(x= 30, y= 30)
 
@@ -150,7 +150,7 @@ def adicionar_material():
         frame_infos_retirar.destroy()
 
 
-icone_adicionar = PhotoImage(file="C:/Users/lucas/Desktop/Materiais/images/adicionar-produto.png")
+icone_adicionar = PhotoImage(file="C:/Users/lucas/Documents/Lucas/Materiais/images/adicionar-produto.png")
 botao_adicionar = Button(frame_topo, image= icone_adicionar, text="Criar Material", compound='left', width=150, overrelief="ridge", relief="raised", cursor="hand2",command=adicionar_material)
 botao_adicionar.place(x=240, y= 140)
 
@@ -270,11 +270,9 @@ def adicionar_quantidade():
     btn_adicionar_quantidade.place(x=120, y=270)
 
 
-icone_adicionar_quantidade = PhotoImage(file="C:/Users/lucas/Desktop/Materiais/images/estoque-rotatividade.png")
+icone_adicionar_quantidade = PhotoImage(file="C:/Users/lucas/Documents/Lucas/Materiais/images/estoque-rotatividade.png")
 botao_adicionar_quantidade = Button(frame_topo, image= icone_adicionar_quantidade, text="Adicionar Material", compound='left', width=150, overrelief="ridge", relief="raised", cursor="hand2",command=adicionar_quantidade)
 botao_adicionar_quantidade.place(x=420, y= 140)
-
-
 
 
 def retirar_material():
@@ -414,7 +412,7 @@ def retirar_material_btn():
 
 
 
-icone_retirar = PhotoImage(file="C:/Users/lucas/Desktop/Materiais/images/remover.png")
+icone_retirar = PhotoImage(file="C:/Users/lucas/Documents/Lucas/Materiais/images/remover.png")
 botao_retirar = Button(frame_topo, image= icone_retirar, text="Retirar Material", compound='left', width=150, overrelief="ridge", relief="raised", cursor="hand2", command=retirar_material_btn)
 botao_retirar.place(x=600, y= 140)
 
@@ -422,7 +420,7 @@ def movimentacoes():
     
     Movimentacoes_Tela = Toplevel()
     Movimentacoes_Tela.title("Movimentações de Estoque")
-    icone = PhotoImage(file="C:/Users/lucas/Desktop/Materiais/images/parcela.png")
+    icone = PhotoImage(file="C:/Users/lucas/Documents/Lucas/Materiais/images/parcela.png")
     Movimentacoes_Tela.iconphoto(False, icone)
     Movimentacoes_Tela.configure(bg= co1)
     Movimentacoes_Tela.state('zoomed') 
@@ -532,12 +530,10 @@ def movimentacoes():
         
 
 
-
 # Botao Movimentacoes 
-icone_movimentacoes = PhotoImage(file="C:/Users/lucas/Desktop/Materiais/images/movimentacoes.png")
+icone_movimentacoes = PhotoImage(file="C:/Users/lucas/Documents/Lucas/Materiais/images/movimentacoes.png")
 botao_movimentacoes = Button(frame_topo, image= icone_movimentacoes, text="Movimentações", compound='left', width=150, overrelief="ridge", relief="raised", cursor="hand2", command= movimentacoes)
 botao_movimentacoes.place(x=780, y= 140)
-
 
 
 def Atualizar_tabela():
@@ -546,7 +542,7 @@ def Atualizar_tabela():
 
 
 # Botao Atualizar Tabela
-icone_atualizar = PhotoImage(file="C:/Users/lucas/Desktop/Materiais/images/atualizar.png")
+icone_atualizar = PhotoImage(file="C:/Users/lucas/Documents/Lucas/Materiais/images/atualizar.png")
 
 botao_atualizar = Button(frame_topo, image= icone_atualizar, text="Atualizar", compound='left', width=100, overrelief="ridge", relief="raised", cursor="hand2", command= Atualizar_tabela)
 
